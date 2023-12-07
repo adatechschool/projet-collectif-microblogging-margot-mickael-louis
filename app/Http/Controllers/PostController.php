@@ -10,9 +10,10 @@ use Illuminate\Http\RedirectResponse;
 class PostController extends Controller
 {
     public function index()
-    {
+    {   
         $posts = Post::paginate(5);
 
+        // trie et affiche 5 posts par page
         return view('index', compact('posts'));
     }
     public function uniquePost($id = null)
@@ -36,15 +37,27 @@ class PostController extends Controller
         return view('uniquepost', compact('post'));
     }
     public function create(Request $request): RedirectResponse
-    {
-        $validated = $request->validate([
+    {   
+        // vécupère la requête lancée par le formulaire et vérifie les données
+        $request->validate([
             'image' => 'required',
             'description' => 'required',
         ]);
 
-        $request->user()->posts()->create($validated);
+        // crée une instance du modèle
+        $post = new Post();
+        $post->image = $request->image;
 
-        return redirect()->back()->with('status', 'Post publié !');
+        //récupère l'id de l'utilisateur connecté
+        $post->user_id = auth()->id();
+        $post->description = $request->description;
+        $post->likes = 0;
+
+        //sauvegarde le nouveau post dans la BDD
+        $post->save();
+
+        //redirige sur la page
+        return redirect()->route('index')->with('success', 'post publié');
     }
 
 
