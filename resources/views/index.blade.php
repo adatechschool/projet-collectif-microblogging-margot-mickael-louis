@@ -11,9 +11,23 @@
 </head>
 
 <body class="bg-sky-100">
+    <div>
+        <form action={{ route('create') }} method="POST">
+            @csrf
+            <label for="image">
+                Lien de l'image:
+                <input type="text" id="image" name="image" />
+            </label>
+            <label for="description">
+                Légende:
+                <input type="text" id="description" name="description" />
+            </label>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
     <main class="flex flex-col w-full h-full overflow-scroll items-center font-atkinson gap-2">
         @foreach ($posts as $post)
-            <x-post-card :post=$post/>
+            <x-post-card :post=$post />
             <!-- Ajoutez d'autres champs du post que vous souhaitez afficher -->
         @endforeach
 

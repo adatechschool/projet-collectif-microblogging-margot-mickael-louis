@@ -24,17 +24,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::prefix('posts')->group(function () {
-    Route::get('/', [PostController::class, "index"])->middleware(['auth', 'verified'])->name('index');
-    Route::get('/{id?}', [PostController::class, "uniquePost"])->middleware(['auth', 'verified'])->name('uniquepost');
-});
-
-// Route::get('/posts', [PostController::class, "index"])->middleware(['auth', 'verified'])->name('index');
-
+Route::get('/posts', [PostController::class, "index"])->middleware(['auth', 'verified'])->name('index');
+Route::post('/posts', [PostController::class, 'create'])->middleware(['auth', 'verified'])->name('create');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
