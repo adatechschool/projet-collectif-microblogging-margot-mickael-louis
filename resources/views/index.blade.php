@@ -11,9 +11,9 @@
     <h1>Hello World</h1>
     <div>
         @foreach ($posts as $post)
-            <p>{{ $post->image }}</p>
-            <p>{{ $post->description }}</p>
+            <p><a href="posts/{{$post->id}}">{{ $post->image }}</a></p>
             <p>{{ $post->likes }}</p>
+            <p>{{ $post->description }}</p>
             <!-- Ajoutez d'autres champs du post que vous souhaitez afficher -->
         @endforeach
 

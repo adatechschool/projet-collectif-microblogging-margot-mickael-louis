@@ -24,7 +24,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/posts', [PostController::class, "index"])->middleware(['auth', 'verified'])->name('index');
+Route::prefix('posts')->group(function () {
+    Route::get('/', [PostController::class, "index"])->middleware(['auth', 'verified'])->name('index');
+    Route::get('/{id?}', [PostController::class, "uniquePost"])->middleware(['auth', 'verified'])->name('uniquepost');
+});
+
+// Route::get('/posts', [PostController::class, "index"])->middleware(['auth', 'verified'])->name('index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
