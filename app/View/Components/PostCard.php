@@ -12,12 +12,14 @@ class PostCard extends Component
     public $postDesc;
     public $userName;
     public $imageUrl;
+    public $likes;
     public function __construct($post)
     {
         $this->timeStamp = $post->created_at;
         $this->postDesc = $post->description;
         $this->userName = $post->user->name;
         $this->imageUrl = $post->image;
+        $this->likes = $post->likes;
     }
 
     /**
