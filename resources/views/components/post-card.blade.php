@@ -15,6 +15,7 @@
         </section>
         <section class="w- fit max-w-24 ">
             // forEach comment...
+            <button aria-label="display all comments" class="w-full italic text-gray-600 text-right hover:text-gray-800">Afficher tous les commentaires</button>
         </section>
     </div>
 </article>
