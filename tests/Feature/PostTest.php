@@ -15,6 +15,7 @@ class PostTest extends TestCase
     {
         $response = $this->get('/posts');
 
+        
         $response->assertStatus(200);
         $response->assertSee('Rudolph Orn');
     }
