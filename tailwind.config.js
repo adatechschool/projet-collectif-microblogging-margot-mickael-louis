@@ -19,6 +19,10 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 atkinson: ['Atkinson Hyperlegible',],
             },
+            colors: {
+                'off-black': "#343434",
+                'dull-grey': "#F5F5F5"
+            }
         },
     },
 

@@ -15,9 +15,10 @@ class Post extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'image',
+        'image_url',
         'description',
         'likes',
+        'image_file'
     ];
 
     // /**
@@ -40,7 +41,8 @@ class Post extends Model
     //     'password' => 'hashed',
     // ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }
