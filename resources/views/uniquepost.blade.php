@@ -8,8 +8,9 @@
     <title>Post</title>
 </head>
 <body>
+  <x-app-layout>
 
-    <h1 class="text-3xl font-bold underline">Unique post</h1>
+    <h1 class="text-3xl font-bold underline mt-16">Unique post</h1>
     <div>
         
         <p>User : {{ $post->user->name }}</p>
@@ -21,25 +22,30 @@
         
     </div>
 
-    <div class="p-10">  
+    <div class="p-10 flex justify-center">  
         <!--Card 1-->
-        <div class="max-w-sm rounded overflow-hidden shadow-lg">
-            <div><p>PP {{ $post->user->name }}</p></div>
-          <img class="w-full rounded" src="/images/lock.jpg" alt="Lock">
-          <div class="px-6 py-4">
-            <div class="text-sm text-gray-300 mb-2 flex justify-between">
-                <div>{{ $post->created_at }}</div>
-                <div>	&#x1F493;{{ $post->likes }}</div>
-            </div>
-            <p class="text-gray-700 text-base">
-                {{ $post->description }}
-            </p>
+        <article class="w-1/2 h-fit flex flex-col py-2 text-xs bg-white lg:text-base xl:text-lg">
+          <section class="p-2">
+              <div class="flex justify-between h-fit w-full">
+                  <h3 class="font-semibold">{{ $post->user->name }}</h3>
+                  <p class="italic">{{ $post->created_at }}</p>
+              </div>
+              <legend>{{ $post->description }}</legend>
+          </section>
+          <section class="w-full h-fit"><a href="http://localhost:8070/posts/{{$post->id}}"><img src={{ $post->image }} class="aspect-auto w-full" /></a></section>
+          <div class="w-full hfit px-2">
+              <section class="flex justify-between items-center gap-2 p-2">
+                  <i class="fa-regular fa-heart text-lg lg:text-xl xl:text-2xl hover:text-red-500"></i>
+                  <p class="w-full italic"><b>{{ $post->likes }}</b> personnes aiment</p>
+                  <i class="fa-regular fa-comment text-lg lg:text-xl xl:text-2xl hover:text-blue-500"></i>
+              </section>
+              <section class="w- fit max-w-24 ">
+                  // forEach comment...
+                  <button aria-label="display all comments" class="w-full italic text-gray-600 text-right hover:text-gray-800">Afficher tous les commentaires</button>
+              </section>
           </div>
-          <div class="px-6 pt-4 pb-2">
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-          </div>
-        </div>
+      </article>
       </div>
+    </x-app-layout>
     </body>
 </html>
