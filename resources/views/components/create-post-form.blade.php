@@ -1,7 +1,7 @@
-    <form action={{ route('create') }} method="POST" enctype="multipart/form-data"
+    <form action={{ route('create') }} method="POST"
         class="mt-4 flex collapse transition-all opacity-0 duration-500 flex-col gap-2 w-full h-fit text-xs lg:text-base xl:text-lg" id="create-post-form">
         @csrf
-        <x-form-element labelText="Téleverser une image" inputId="imageFile" inputType="file" />
+        <x-form-element labelText="Téleverser une image" inputId="file" inputType="file" />
         <hr />
         <x-form-element labelText="Ajouter un lien" inputId="image" inputType="text" />
         <hr />

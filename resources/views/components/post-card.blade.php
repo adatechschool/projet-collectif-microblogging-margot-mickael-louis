@@ -1,5 +1,3 @@
-
-
 <article class="w-full h-fit flex flex-col py-2 text-xs bg-white lg:text-base xl:text-lg">
     <section class="p-2">
         <div class="flex justify-between h-fit w-full">
