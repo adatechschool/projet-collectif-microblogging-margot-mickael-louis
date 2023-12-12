@@ -19,7 +19,7 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            "comment" => $this->faker->sentence,
+            "content" => $this->faker->sentence,
             "likes" => $this->faker->randomDigit,
             "user_id" => $this->faker->numberBetween(1, User::count()),
             "post_id" => $this->faker->numberBetween(1, Post::count()),

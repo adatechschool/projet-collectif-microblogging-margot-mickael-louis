@@ -28,8 +28,11 @@
     </div>
     <main class="flex flex-col w-full h-full overflow-scroll items-center font-atkinson gap-2">
         @foreach ($posts as $post)
-            <x-post-card :post="$post" />
+        @include('components.post-card',['post' => $post])
             <!-- Ajoutez d'autres champs du post que vous souhaitez afficher -->
+
+            
+
         @endforeach
 
         {{ $posts->links() }} <!-- Pour afficher la pagination -->
