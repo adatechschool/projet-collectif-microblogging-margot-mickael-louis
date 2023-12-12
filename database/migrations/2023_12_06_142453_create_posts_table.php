@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
 
-            $table->string("image_url");
-            $table->;
+            $table->string("image");
             $table->longText("description");
             $table->integer("likes");
             $table->id();
