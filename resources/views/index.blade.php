@@ -25,6 +25,7 @@
         @endforeach
 
     </main>
+    {{ $posts->links() }} <!-- Pour afficher la pagination -->
     </x-app-layout>
 </body>
 
