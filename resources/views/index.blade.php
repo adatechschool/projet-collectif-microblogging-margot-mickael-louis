@@ -10,8 +10,9 @@
     <title>Data</title>
 </head>
 
-<body class="bg-sky-100">
-    <div>
+<body class="bg-gray-100">
+    <x-app-layout>
+    <div class="mt-20 mb-20">
         <form action={{ route('create') }} method="POST">
             @csrf
             <label for="image">
@@ -27,12 +28,13 @@
     </div>
     <main class="flex flex-col w-full h-full overflow-scroll items-center font-atkinson gap-2">
         @foreach ($posts as $post)
-            <x-post-card :post=$post />
+            <x-post-card :post="$post" />
             <!-- Ajoutez d'autres champs du post que vous souhaitez afficher -->
         @endforeach
 
         {{ $posts->links() }} <!-- Pour afficher la pagination -->
     </main>
+</x-app-layout>
 </body>
 
 </html>

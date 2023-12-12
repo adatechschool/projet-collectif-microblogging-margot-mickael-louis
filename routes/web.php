@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/posts', [PostController::class, "index"])->middleware(['auth', 'verified'])->name('index');
+Route::get('/posts/{id}', [PostController::class, "uniquepost"])->middleware(['auth', 'verified'])->name('uniquepost');
 Route::post('/posts', [PostController::class, 'create'])->middleware(['auth', 'verified'])->name('create');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

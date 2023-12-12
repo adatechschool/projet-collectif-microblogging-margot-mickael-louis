@@ -13,6 +13,7 @@ class PostCard extends Component
     public $userName;
     public $imageUrl;
     public $likes;
+    public $id;
     public function __construct($post)
     {
         $this->timeStamp = $post->created_at;
@@ -20,6 +21,7 @@ class PostCard extends Component
         $this->userName = $post->user->name;
         $this->imageUrl = $post->image;
         $this->likes = $post->likes;
+        $this->id = $post->id;
     }
 
     /**
