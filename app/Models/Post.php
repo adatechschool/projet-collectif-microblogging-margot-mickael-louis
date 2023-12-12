@@ -11,10 +11,9 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'image_url',
+        'image',
         'description',
         'likes',
-        'image_file'
     ];
 
     public function user()
