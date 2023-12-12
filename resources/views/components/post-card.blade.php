@@ -8,7 +8,7 @@
         </div>
         <legend>{{ $post->description }}</legend>
     </section>
-    <section class="w-full h-fit"><a href="/posts/{{$post->id}}"><img src={{ $post->image }} class="aspect-auto w-full" /></a></section>
+    <section class="w-full h-fit"><a href="/posts/{{$id}}"><img src={{ $imageUrl }} class="aspect-auto w-full" /></a></section>
     <div class="w-full hfit px-2">
         <section class="flex justify-between items-center gap-2 p-2">
             <i class="fa-regular fa-heart text-lg lg:text-xl xl:text-2xl hover:text-red-500"></i>
