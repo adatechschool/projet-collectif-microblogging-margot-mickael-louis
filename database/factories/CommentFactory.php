@@ -4,11 +4,12 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
+use App\Models\Post;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
  */
-class PostFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,10 +19,10 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            "image" => $this->faker->imageUrl,
-            "description" => $this->faker->sentence,
+            "comment" => $this->faker->sentence,
             "likes" => $this->faker->randomDigit,
-            "user_id" => $this->faker->randomElement([1,2,3]),
+            "user_id" => $this->faker->numberBetween(1, User::count()),
+            "post_id" => $this->faker->numberBetween(1, Post::count()),
         ];
     }
 }
