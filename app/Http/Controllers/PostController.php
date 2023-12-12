@@ -6,11 +6,12 @@ use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class PostController extends Controller
 {
     public function index()
-    {   
+    {
         $posts = Post::paginate(5);
 
         // trie et affiche 5 posts par page
@@ -37,12 +38,21 @@ class PostController extends Controller
         return view('uniquepost', compact('post'));
     }
     public function create(Request $request): RedirectResponse
-    {   
-        // vécupère la requête lancée par le formulaire et vérifie les données
-        $request->validate([
-            'image' => 'required',
+    {
+         // on vérifie que les données contiennent une url OU un fichier ainsi qu'une description
+         $request->validate([
+            'image' => 'required_without:imageFile',
+            'imageFile' => 'required_without:image',
             'description' => 'required',
         ]);
+        // si il y a un fichier
+        if ($request->file('imageFile')) {
+            // on uploade sur Cloudinary et récupère directement l'url
+            $uploadedFileUrl = Cloudinary::upload($request->file('imageFile')->getRealPath())->getSecurePath(); // je sais pas pk il reconnait pas la méthode mais ça marche
+            // on ajoute l'url aux données
+            $request->merge(['image' => $uploadedFileUrl]);
+        }
+       
 
         // crée une instance du modèle
         $post = new Post();
