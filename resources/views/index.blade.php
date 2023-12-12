@@ -11,19 +11,21 @@
 </head>
 
 @php
-    $hideForm = false;    
+    $hideForm = false;
 @endphp
+<body class="bg-gray-100">
+    <x-app-layout>
+    <div class="mt-20 mb-20">
 <body class="bg-sky-100">
-    <main class="flex flex-col w-full m-auto sm:w-2/3 lg:w-1/2 h-full overflow-scroll items-center font-atkinson text-off-black gap-2">
-        <x-create-post-section :hideForm="$hideForm"/>
+    <main
+        class="flex flex-col w-full m-auto sm:w-2/3 lg:w-1/2 h-full overflow-scroll items-center font-atkinson text-off-black gap-2">
+        <x-create-post-section :hideForm="$hideForm" />
         @foreach ($posts as $post)
             <x-post-card :post="$post" />
-            <!-- Ajoutez d'autres champs du post que vous souhaitez afficher -->
         @endforeach
 
-        {{ $posts->links() }} <!-- Pour afficher la pagination -->
     </main>
-</x-app-layout>
+    </x-app-layout>
 </body>
 
 </html>
