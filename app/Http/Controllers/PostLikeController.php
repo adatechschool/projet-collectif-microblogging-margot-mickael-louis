@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 class PostLikeController extends Controller
 {
     public function like(Post $post) {
+        $liker = auth()->user();
 
+        $liker->likes()->attach($post);
+        
     }
 }
