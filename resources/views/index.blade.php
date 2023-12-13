@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <script src="https://kit.fontawesome.com/7a1b45f3d5.js" crossorigin="anonymous"></script>
-    <title>Data</title>
+    <title>Posts</title>
 </head>
 
 @php
     $hideForm = false;
 @endphp
-<body class="bg-gray-100">
+<body class="bg-slate-600">
     <x-app-layout>
     <div class="mt-20 mb-20">
     <main

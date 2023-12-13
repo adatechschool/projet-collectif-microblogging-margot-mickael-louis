@@ -11,7 +11,7 @@ class CommentController extends Controller
 {
     public function index()
     {
-        $comments = Comment::with('post', 'author')->get();
+        $comments = Comment::with('post', 'author')->latest()->get();
 
         return view('comments.index', compact('comments'));
     }

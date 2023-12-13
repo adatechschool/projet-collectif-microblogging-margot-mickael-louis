@@ -18,7 +18,7 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            "image_url" => $this->faker->imageUrl,
+            "image" => $this->faker->image,
             "description" => $this->faker->sentence,
             "likes" => $this->faker->randomDigit,
 
