@@ -20,11 +20,11 @@ class PostFactory extends Factory
         //  on choppe un tableau de tous les ids existant (juste la valeur avec "pluck")
         $ids = User::pluck("id");
         return [
-            "image_url" => $this->faker->imageUrl,
+            "image" => $this->faker->imageUrl,
             "description" => $this->faker->sentence,
             "likes" => $this->faker->randomDigit,
-            "image_file" => $this->faker->image,
-            "user_id" => $this->faker->randomElement([1,2,3]),
+            // on met un id random mais qui existe
+            "user_id" => $this->faker->randomElement($ids),
         ];
     }
 }

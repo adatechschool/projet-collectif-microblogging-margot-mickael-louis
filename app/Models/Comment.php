@@ -14,19 +14,20 @@ class Comment extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
-        'post_id',
-        'content',
-        'likes',
+        'content'
     ];
 
-    public function author()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 
     public function post()
     {
         return $this->belongsTo(Post::class);
     }
+
+    // public function likes() {
+    //     return $this->
+    // }
 }
