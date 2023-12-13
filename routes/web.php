@@ -23,7 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/comments', [CommentController::class, 'index']);
+Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');;
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
