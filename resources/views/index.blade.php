@@ -15,21 +15,15 @@
 @endphp
 <body class="bg-slate-600">
     <x-app-layout>
-    <div class="mt-20 mb-20">
-    <main
-        class="flex flex-col w-full m-auto sm:w-2/3 lg:w-1/2 h-full overflow-scroll items-center font-atkinson text-off-black gap-2">
-        <x-create-post-section :hideForm="$hideForm" />
-        @foreach ($posts as $post)
-        @include('components.post-card',['post' => $post])
-            <!-- Ajoutez d'autres champs du post que vous souhaitez afficher -->
+        <div
+            class="flex flex-col w-full m-auto sm:w-2/3 lg:w-1/2 h-full items-center  text-off-black gap-2">
+            <x-create-post-section :hideForm="$hideForm" />
+            @foreach ($posts as $post)
+                <x-post-card :post="$post" />
+                <!-- Ajoutez d'autres champs du post que vous souhaitez afficher -->
+            @endforeach
 
-            
-
-        @endforeach
-
-    </main>
-    {{ $posts->links() }} <!-- Pour afficher la pagination -->
+            {{ $posts->links() }} <!-- Pour afficher la pagination -->
+        </div>
     </x-app-layout>
-</body>
-
 </html>

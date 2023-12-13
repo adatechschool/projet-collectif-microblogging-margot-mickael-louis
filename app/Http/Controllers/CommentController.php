@@ -22,13 +22,12 @@ class CommentController extends Controller
             'post_id' => 'required|exists:posts,id',
             'content' => 'required|string',
         ]);
-
         // Création d'un nouveau commentaire
         Comment::create([
             'post_id' => $request->input('post_id'),
-            'user_id' => auth()->id(),  
+            'user_id' => auth()->id(),
             'content' => $request->input('content'),
-            'likes' => 0,  
+            'likes' => 0,
         ]);
 
         // Redirection vers la vue index ou une autre vue appropriée

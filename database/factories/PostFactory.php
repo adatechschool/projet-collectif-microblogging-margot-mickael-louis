@@ -16,13 +16,16 @@ class PostFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
+    {   
+        //  on choppe un tableau de tous les ids existant (juste la valeur avec "pluck")
+        $ids = User::pluck("id");
         return [
-            "image" => $this->faker->image,
+            
+            "image" => $this->faker->imageUrl,
             "description" => $this->faker->sentence,
             "likes" => $this->faker->randomDigit,
-
-            "user_id" => $this->faker->numberBetween(1, User::count()),
+            // on met un id random mais qui existe
+            "user_id" => $this->faker->randomElement($ids),
         ];
     }
 }

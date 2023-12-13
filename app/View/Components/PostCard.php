@@ -8,20 +8,23 @@ use Illuminate\View\Component;
 
 class PostCard extends Component
 {
-    public $timeStamp;
-    public $postDesc;
-    public $userName;
-    public $imageUrl;
+    public $createdAt;
+    public $description;
+    public $author;
+    public $image;
     public $likes;
     public $id;
+
+    public $comments;
     public function __construct($post)
     {
-        $this->timeStamp = $post->created_at;
-        $this->postDesc = $post->description;
-        $this->userName = $post->user->name;
-        $this->imageUrl = $post->image;
+        $this->createdAt = $post->created_at;
+        $this->description = $post->description;
+        $this->author = $post->user->name;
+        $this->image = $post->image;
         $this->likes = $post->likes;
         $this->id = $post->id;
+        $this->comments = $post->comments;
     }
 
     /**
