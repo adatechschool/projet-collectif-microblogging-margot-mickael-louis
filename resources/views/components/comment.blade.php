@@ -5,7 +5,7 @@
                     class="mr-2 w-6 h-6 rounded-full"
                     src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
                     alt="authorName">{{ $author }}</p>
-            <p class="text-sm text-gray-600 dark:text-gray-400">{{ $created_at }}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">{{ $created }}</p>
         </div>
         <section class="flex justify-between items-center gap-2">
             <i class="fa-regular fa-heart text-lg lg:text-xl xl:text-2xl hover:text-red-500"></i>

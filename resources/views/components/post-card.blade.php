@@ -26,7 +26,7 @@
             </form>
         </section>
         <section class="flex flex-col gap-2 w-full h-fit">
-            @foreach ($comments as $comment)
+            @foreach ($comments->sortByDesc('created_at') as $comment)
                 <x-comment :comment="$comment" />
             @endforeach
             <button aria-label="display all comments"

@@ -12,12 +12,14 @@ class comment extends Component
     public int $id;
     public string $author;
     public int $likes;
+    public  $created;
     public function __construct($comment)
     {
         $this->content = $comment->content;
         $this->author = $comment->user->name;
         $this->id = $comment->id;
-        $this->likes = 0;
+        $this->likes = $comment->likes;
+        $this->created = $comment->created_at;
     }
 
     /**
