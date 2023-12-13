@@ -1,8 +1,6 @@
-@foreach ($post->comments as $comment)
-                <div>
-                    <p><strong>Author:</strong> {{ $comment->author->name }}</p>
-                    <p><strong>Content:</strong> {{ $comment->content }}</p>
-                    <p><strong>Likes:</strong> {{ $comment->likes }}</p>
+                <div class="flex flex-col w-full h-fit">
+                    <p class="w-full"><strong>{{ $author }}</strong> </p>
+                    <p class="w-full">{{ $content }}</p>
+                    <p class="w-full"><strong><i class="fa-solid fa-heart"></i></strong> {{ $likes }}</p>
                 </div>
                 <hr>
-            @endforeach
