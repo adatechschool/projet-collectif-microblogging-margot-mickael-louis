@@ -13,7 +13,6 @@ class Post extends Model
     protected $fillable = [
         'image',
         'description',
-        'likes',
     ];
 
     public function user()
@@ -23,6 +22,10 @@ class Post extends Model
 
     public function comment(){
         return $this->hasMany(Comment::class);
+    }
+
+    public function likes() {
+        return $this->belongsToMany(User::class,'posts_likes')->withTimestamps();
     }
    
     

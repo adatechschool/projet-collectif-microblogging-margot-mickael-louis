@@ -21,7 +21,6 @@ class PostFactory extends Factory
             "image_url" => $this->faker->imageUrl,
             "description" => $this->faker->sentence,
             "likes" => $this->faker->randomDigit,
-
             "user_id" => $this->faker->numberBetween(1, User::count()),
         ];
     }
