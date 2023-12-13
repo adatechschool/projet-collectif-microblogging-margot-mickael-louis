@@ -20,7 +20,7 @@
             class="mt-4 flex flex-col gap-2 w-full h-fit text-xs lg:text-base xl:text-lg items-center">
             @csrf
 
-            <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <input type="hidden" name="post_id" value="{{ $id }}">
             <textarea name="content" placeholder="Ajouter un commentaire" class="border border-gray-300 p-2 rounded-md w-full"></textarea>
             <button type="submit" class="w-24 bg-blue-500 text-white rounded-md p-2 ml-auto hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200 focus:ring-opacity-50">Publier</button>
             </form>
