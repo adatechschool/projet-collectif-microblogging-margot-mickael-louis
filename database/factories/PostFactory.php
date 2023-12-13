@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -18,10 +18,11 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            "image" => $this->faker->imageUrl,
+            "image_url" => $this->faker->imageUrl,
             "description" => $this->faker->sentence,
             "likes" => $this->faker->randomDigit,
-            "user_id" => $this->faker->randomElement([1,2,3]),
+
+            "user_id" => $this->faker->numberBetween(1, User::count()),
         ];
     }
 }
