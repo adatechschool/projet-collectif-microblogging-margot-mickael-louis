@@ -6,14 +6,15 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800" /> --}}
+                        <img src="https://vectorportal.com/storage/c03CChwRIzLoTM6Ec1hPKivcSnHNqqgKyLpDseNz.pnghttps://media.gettyimages.com/id/165816072/fr/vectoriel/chocolat-chaud.jpg?s=1024x1024&w=gi&k=20&c=3o09F5I4T8LEm6T6adWIAfxdDzaPx73nVBtYMf0cVvQ=" alt="ChocoChaud">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class=" space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Doristagram') }}
                     </x-nav-link>
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
                         {{ __('Posts') }}
