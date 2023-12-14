@@ -21,8 +21,8 @@
             @csrf
 
             <input type="hidden" name="post_id" value="{{ $id }}">
-            <textarea name="content" placeholder="Ajouter un commentaire" class="border border-gray-300 p-2 rounded-md w-full"></textarea>
-            <button type="submit" class="w-24 bg-blue-500 text-white rounded-md p-2 ml-auto hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200 focus:ring-opacity-50">Publier</button>
+            <textarea name="content" placeholder="Ajouter un commentaire" class="border border-gray-300 p-2 rounded-sm text-sm lg:text-base xl:text-lg w-full"></textarea>
+            <button type="submit" class="border-none shadow-gray-500 shadow-sm box-border w-fit h-fit px-2 py-1 rounded-sm text-sm lg:text-base xl:text-lg self-end">Publier</button>
             </form>
         </section>
         <section class="flex flex-col gap-2 w-full h-fit">
