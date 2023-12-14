@@ -30,6 +30,10 @@ class Comment extends Model
         return $this->belongsTo(Post::class);
     }
 
+    public function likes()
+    {
+        return $this->morphMany(Likes::class, 'likable');
+    }
     // public function likes() {
     //     return $this->
     // }

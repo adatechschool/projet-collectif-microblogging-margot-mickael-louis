@@ -9,9 +9,18 @@
     <section class="w-full h-fit"><a href="/posts/{{ $id }}"><img src={{ $image }}
                 class="aspect-auto w-full" /></a></section>
     <div class="w-full hfit px-2">
+            
         <section class="flex justify-between items-center gap-2 p-2">
+            <form method="POST" action="{{ route('like') }}">
+                @csrf
+            <input type="hidden" name="likeable_type" value="{{ get_class($post) }}"/>
+            <input type="hidden" name="id" value="{{ $post->id }}"/>
+
+            <button type="submit">
             <i class="fa-regular fa-heart text-lg lg:text-xl xl:text-2xl hover:text-red-500"></i>
-            <p class="w-full italic"><b>{{ $likes }}</b> personnes aiment</p>
+            </button>
+        </form>
+                <p class="w-full italic"><b>{{ $likes }}</b> personnes aiment</p>
             <i class="fa-regular fa-comment text-lg lg:text-xl xl:text-2xl hover:text-blue-500"></i>
         </section>
         <section>
