@@ -13,12 +13,11 @@
 @php
     $hideForm = false;
 @endphp
-<body class="bg-slate-600">
     <x-app-layout>
         <div
             class="flex flex-col w-full m-auto sm:w-2/3 lg:w-1/2 h-full items-center  text-off-black gap-2">
             <x-create-post-section :hideForm="$hideForm" />
-            @foreach ($posts as $post)
+            @foreach ($posts->sortByDesc('created_at') as $post)
                 <x-post-card :post="$post" />
                 <!-- Ajoutez d'autres champs du post que vous souhaitez afficher -->
             @endforeach

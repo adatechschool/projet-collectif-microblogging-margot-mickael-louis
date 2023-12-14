@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(5);
+        $posts = Post::paginate(10);
 
         // trie et affiche 5 posts par page
         return view('index', compact('posts'));
